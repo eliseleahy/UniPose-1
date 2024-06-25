@@ -1,3 +1,8 @@
+
+#allow refernces from folders outside cureent working folder
+import sys
+sys.path.insert(1, '.')
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -176,7 +181,7 @@ class unipose(nn.Module):
 
 
 if __name__ == "__main__":
-    model = waspnet(backbone='resnet', output_stride=16)
+    model = unipose()
     model.eval()
     input = torch.rand(1, 3, 513, 513)
     output = model(input)
